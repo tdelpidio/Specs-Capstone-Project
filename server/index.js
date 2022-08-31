@@ -30,7 +30,7 @@ app.post('/api/addUser', async (req,res) => {
         const salt = bcrypt.genSaltSync(10)
         const passwordHash = bcrypt.hashSync(password, salt)
         await sequelize.query(`
-        INSERT INTO users (first_name, last_name, email_address, password)
+        INSERT INTO users(first_name, last_name, email_address, password)
         VALUES (
             '${firstName}',
             '${lastName}',
@@ -38,7 +38,7 @@ app.post('/api/addUser', async (req,res) => {
             '${passwordHash}')
         `)
         const userInfo = await sequelize.query(`
-        SELECT user_id, first_name, last_name, email_address FROM users WHERE email_address='${email}'
+        SELECT user_id, first_name, last_name, email_address FROM users WHERE email_address = '${email}'
         `)
     res.status(200).send(userInfo)
 }

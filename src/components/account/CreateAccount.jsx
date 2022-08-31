@@ -10,6 +10,16 @@ const CreateAccount = () => {
             email: "",
             password: ""
         }
+        const onSubmit = (values) => {
+            axios
+            .post('http://localhost:4000/api/addUser', values)
+            .then((res)=> {console.log(res.data)
+            localStorage.setItem('email', res.data[0][0].email_address)
+            localStorage.setItem('firstName', res.data[0][0].first_name)
+            localStorage.setItem('user_id', res.data[0][0].user_id)
+            })
+            .catch((err) => console.log(err.response.data))
+        }
         const validate = (values) => {
             const errors = {}
             if(!values.firstName){
@@ -28,15 +38,7 @@ const CreateAccount = () => {
             }
             return errors
         }
-       const onSubmit = (values) => {
-            axios
-            .post('http://localhost:4000/api/addUser', values)
-            .then((res)=> {console.log(res.data)
-            // localStorage.setItem('email', res.data[0][1].fields[3])
-            // localStorage.setItem('firstName', res.data[0][1].fields[1])
-            })
-            .catch((err) => console.log(err.response.data))
-        }
+
 
         const formik = useFormik({
             initialValues,
