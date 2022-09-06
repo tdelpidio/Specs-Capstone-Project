@@ -1,17 +1,39 @@
 import React from "react";
+import axios from "axios";
 
 import {useFormik} from 'formik'
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    let navigate = useNavigate();
     const initialValues = {
         email: "",
         password: "",
     }
     const onSubmit = (values) => {
-        console.log(values)
+        axios.post('http://localhost:4000/api/login', values)
+        .then((res) => {
+            console.log(res.data)
+            localStorage.setItem('email', res.data.email_address)
+            localStorage.setItem('firstName', res.data.first_name)
+            localStorage.setItem('user_id', res.data.user_id)
+            navigate('/restaurant')
+        })
+        .catch((err) => {
+            console.log(err.response.data)
+        })
     }
     const validate = (values) => {
-        console.log('validation')
+        const errors = {}
+        if(!values.email) {
+            errors.email = "email required"
+        }
+        if(!values.password) {
+            errors.password = "password required"
+        } else if (values.password.length < 10){
+            errors.password = "Password must be at least than 10 characters."
+        }
+        return errors
     }
 
     const formik = useFormik({

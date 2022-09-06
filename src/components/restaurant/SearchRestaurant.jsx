@@ -11,14 +11,11 @@ const SearchRestaurant = () => {
         axios
         .get('http://localhost:4000/api/getStates')
         .then((res) =>setAllStates(res.data))
-        axios
-        .get('http://localhost:4000/api/getRestaurantList')
-        .then((res) => setResults(res.data))
 
     }, [])
 
     const stateOptions = allStates.map((states, index) => {
-        return <option value={states.id}>{states.abbreviation}</option>
+        return <option value={states.abbreviation}>{states.abbreviation}</option>
     })
 
     const foodList = results.map((restaurants, index) => {
@@ -30,8 +27,12 @@ const SearchRestaurant = () => {
             state: null
         },
 
-        onSubmit:({foodList}) => {
-            console.log(foodList)
+        onSubmit:({state}) => {
+            console.log(state)
+            axios
+        .post('http://localhost:4000/api/getRestaurantList')
+        .then((res) => (console.log(res)))
+            
         }
     })
 

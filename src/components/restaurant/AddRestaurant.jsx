@@ -17,7 +17,7 @@ const AddRestaurant = () => {
     }, [])
 
     const stateOptions = allStates.map((states, index) => {
-        return <option value={states.id}>{states.abbreviation}</option>
+        return <option value={states.abbreviation}>{states.abbreviation}</option>
     })
 
     const formik = useFormik({
