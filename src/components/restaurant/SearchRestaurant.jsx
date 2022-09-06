@@ -5,12 +5,13 @@ import { useFormik } from "formik"
 
 const SearchRestaurant = () => {
     const [allStates, setAllStates] = useState([]);
-    const [searchResult, setSearchResult] = useState([]);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         axios
         .get('http://localhost:4000/api/getStates')
         .then((res) =>setAllStates(res.data))
+
 
     }, [])
 
@@ -18,6 +19,14 @@ const SearchRestaurant = () => {
         return <option value={states.abbreviation}>{states.abbreviation}</option>
     })
 
+    const restaurantOptions = data.map((restaurants, index) => {
+        return <p value={restaurants.restaurant_name}><br></br>
+            {restaurants.restaurant_name}<br></br>
+            {restaurants.city}, {restaurants.state}<br></br>
+            <a href={restaurants.website} target="blank">{restaurants.website}</a>
+            <br></br>
+            <button>Reviews</button></p>
+    })
 
     const formik = useFormik({
         initialValues:{
@@ -28,12 +37,13 @@ const SearchRestaurant = () => {
             console.log(state)
             axios
         .post('http://localhost:4000/api/getRestaurantList', state)
-        .then((res) => console.log(res.data))
-            
-        }
+        .then(res => setData(res.data)
+        
+        )}
     })
 
     return (
+        <div>
         <section className="search-screen">
             <h2 className="restaurant-header">Find a Restaurant</h2>
             <form onSubmit={formik.handleSubmit} className="search-form">
@@ -45,8 +55,11 @@ const SearchRestaurant = () => {
                 </select>
                 <button type='submit'>Search</button>
                 </form>
-    
         </section>
+        <div className="resultDisplay">
+        {restaurantOptions}
+        </div>
+        </div>
     )
 }
 

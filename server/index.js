@@ -19,6 +19,13 @@ app.get('/api/getStates', async (req,res) => {
     res.status(200).send(states[0])
 }),
 
+app.get('/api/getRestaurants', async (req,res) => {
+    let restaurants = await sequelize.query(`
+        SELECT * FROM restaurants
+    `)
+    res.status(200).send(restaurants[0])
+}),
+
 app.post('/api/addUser', async (req,res) => {
     const {firstName, lastName, email, password} = req.body
     const checkEmail = await sequelize.query(`
@@ -80,7 +87,6 @@ app.post('/api/addRestaurant', async (req,res) => {
     res.status(200).send(`Successfully added!`)
 }),
 
-
 app.post('/api/getRestaurantList', async (req,res) => {
     const {state} = req.body
     console.log(req.body)
@@ -88,17 +94,7 @@ app.post('/api/getRestaurantList', async (req,res) => {
         SELECT * FROM restaurants
         WHERE state = '${state}'
     `)
-        // let restaurantResults = {
-        //     id: selectedState[0][0]?.restaurant_id,
-        //     name: selectedState[0][0]?.restaurant_name,
-        //     type: selectedState[0][0]?.restaurant_type,
-        //     city: selectedState[0][0]?.city,
-        //     state: selectedState[0][0]?.state,
-        //     website: selectedState[0][0]?.website
-            
-        // }
         res.status(200).send(selectedState[0])
-      
 }),
 
 app.post('/api/addReview', async (req,res) => {
