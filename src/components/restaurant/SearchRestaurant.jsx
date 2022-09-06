@@ -5,12 +5,12 @@ import { useFormik } from "formik"
 
 const SearchRestaurant = () => {
     const [allStates, setAllStates] = useState([]);
+    const [searchResult, setSearchResult] = useState([]);
 
     useEffect(() => {
         axios
         .get('http://localhost:4000/api/getStates')
         .then((res) =>setAllStates(res.data))
-
 
     }, [])
 
@@ -37,7 +37,6 @@ const SearchRestaurant = () => {
         <section className="search-screen">
             <h2 className="restaurant-header">Find a Restaurant</h2>
             <form onSubmit={formik.handleSubmit} className="search-form">
-            <input className="search-input" placeholder="City"/>
             <select
             name='state'
             value={formik.values.state}

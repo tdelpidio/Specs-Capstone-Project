@@ -9,7 +9,7 @@ const RestaurantList = () => {
 
 
     return (
-        <div>
+        <div className="restaurantMain">
             <SearchRestaurant />
             <AddRestaurant />
         </div>

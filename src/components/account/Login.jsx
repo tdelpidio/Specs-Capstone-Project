@@ -45,7 +45,7 @@ const Login = () => {
 
     return (
         <div>
-        <h2>Please enter your email and password below!</h2>
+        <h3>Sign into your account below</h3>
         <form onSubmit={formik.handleSubmit} className="login">
             <input
              onChange={formik.handleChange}

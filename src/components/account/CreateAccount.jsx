@@ -48,6 +48,7 @@ const CreateAccount = () => {
 
     return (
         <div>
+            <h3>Create your account below</h3>
         <form className="create-account-form" onSubmit={formik.handleSubmit}>
             <input 
             name='firstName'

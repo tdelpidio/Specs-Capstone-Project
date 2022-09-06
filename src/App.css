@@ -1,18 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 html {
   min-height: 100vh;
   min-width: 100vw;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: rgb(88, 87, 87);
+  background-color: #ffffff;
+  font-family: 'Roboto';
+}
+
+.homePicture {
+  width: 100vw;
+  height: 80vh;
+  padding: 0;
+  margin: 0;
+}
+
+.home-welcome {
+  width: 100vw;
+  padding: 0;
+  margin: 0;
 }
 
 h2 {
-  color:white;
+  color:black;
   font-size: 30px;
   align-items: center;
   margin-bottom: 25px;
   margin-top: 25px;
+}
+
+h3{
+  font-size: 30px;
+  text-align: center;
+  margin-top: 80px;
 }
 
 input, select {
@@ -25,18 +46,20 @@ input, select {
 header {
   width: 100vw;
   height: 75px;
-  background-color: crimson;
+  background-color: #800000;
   color:white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
   box-sizing: border-box;
   padding: 0px 35px;
 }
 .header-logo{
   font-size: 40px;
   width: 50%;
+  font-family: 'Pacifico';
+  color:white
 }
 
 .nav{
@@ -49,11 +72,13 @@ header {
   background-color: white;
   color: black;
   font-size: 15px;
+  font-weight: bold;
   flex-direction: row;
   height: 45px;
   min-width: 50px;
   box-sizing: border-box;
   margin-right: 50px;
+  border-radius: 5px;
 }
 
 .home-welcome{
@@ -66,16 +91,18 @@ header {
   flex-direction: column;
   justify-content:space-evenly;
   text-align: center;
-  width: 100%;
-  height: 20%;
+  width: 100vw;
+  height: 50vh;
+  color: black;
+  font-size: 30px;
 }
 
 .account-screen{
     width: 100vw;
-    height: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
 }
 
 .login{
@@ -136,4 +163,31 @@ button {
 .state-select{
   text-align: center;
   width: 120px;
+}
+
+.restaurantMain{
+
+  margin-top: 50px;
+  display: block;
+}
+
+.restaurant-header{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+
+}
+
+.addRestaurant{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
 }
