@@ -52,12 +52,12 @@ app.post('/api/login', async (req, res) => {
     `)
     if(validUser[1].rowCount === 1) {
         if(bcrypt.compareSync(password, validUser[0][0].password)){
-            let object = {
+            let userData = {
                 id: validUser[0][0].id,
                 name: validUser[0][0].name,
                 email
             }
-            res.status(200).send(object)
+            res.status(200).send(userData)
         } else {
             res.status(401).send('Incorrect password')
         }
@@ -82,11 +82,11 @@ app.post('/api/addRestaurant', async (req,res) => {
 
 
 app.post('/api/getRestaurantList', async (req,res) => {
-    const {stateValue} = req.body
-    console.log(req)
+    const {state} = req.body
+    console.log(req.body)
     const selectedState = await sequelize.query (`
         SELECT * FROM restaurants
-        WHERE state = '${stateValue}'
+        WHERE state = '${state}'
     `)
         // let restaurantResults = {
         //     id: selectedState[0][0]?.restaurant_id,
@@ -98,9 +98,7 @@ app.post('/api/getRestaurantList', async (req,res) => {
             
         // }
         res.status(200).send(selectedState[0])
-
-
-    console.log(selectedState)        
+      
 }),
 
 app.post('/api/addReview', async (req,res) => {

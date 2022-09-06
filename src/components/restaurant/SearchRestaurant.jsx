@@ -5,12 +5,12 @@ import { useFormik } from "formik"
 
 const SearchRestaurant = () => {
     const [allStates, setAllStates] = useState([]);
-    const [results, setResults] = useState([])
 
     useEffect(() => {
         axios
         .get('http://localhost:4000/api/getStates')
         .then((res) =>setAllStates(res.data))
+
 
     }, [])
 
@@ -18,20 +18,17 @@ const SearchRestaurant = () => {
         return <option value={states.abbreviation}>{states.abbreviation}</option>
     })
 
-    const foodList = results.map((restaurants, index) => {
-        return <li value={restaurants.restaurant_id}>{restaurants.restaurant_name}</li>
-    })
 
     const formik = useFormik({
         initialValues:{
             state: null
         },
 
-        onSubmit:({state}) => {
+        onSubmit:(state) => {
             console.log(state)
             axios
-        .post('http://localhost:4000/api/getRestaurantList')
-        .then((res) => (console.log(res)))
+        .post('http://localhost:4000/api/getRestaurantList', state)
+        .then((res) => console.log(res.data))
             
         }
     })
@@ -48,7 +45,8 @@ const SearchRestaurant = () => {
                 {stateOptions}
                 </select>
                 <button type='submit'>Search</button>
-                </form> 
+                </form>
+    
         </section>
     )
 }
