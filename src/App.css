@@ -32,6 +32,10 @@ a:hover {
   color:#DCCCA3;
 }
 
+p{
+  padding: 30px;
+}
+
 h1{
   font-size: 75px;
   font-family: 'Satisfy';
@@ -47,13 +51,15 @@ h2 {
   align-items: center;
   margin-bottom: 25px;
   margin-top: 25px;
-  font-family: 'Merienda';
+  color: black;
 }
 
 h3{
   font-size: 30px;
   text-align: center;
   margin-top: 80px;
+  color:#800000;
+  font-weight: bold;
 }
 
 h4{
@@ -81,7 +87,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* margin-bottom: 80px; */
   box-sizing: border-box;
   padding: 0px 35px;
 }
@@ -89,7 +94,8 @@ header {
   font-size: 40px;
   width: 50%;
   font-family: 'Pacifico';
-  color:white
+  color:white;
+  text-shadow: rgb(22, 22, 22) 5px 5px 5px;
 }
 
 .nav{
@@ -130,8 +136,18 @@ header {
   text-align: center;
   width: 100vw;
   height: 50vh;
-  color: black;
+  color:black;
   font-size: 30px;
+  font-weight:bold;
+}
+
+.create{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+ 
 }
 
 .account-screen{
@@ -183,6 +199,7 @@ button:hover{
   flex-direction: column;
   align-items: center;
   margin-top: 5%;
+  margin-bottom: 100px;
 }
 
 .create-account-input{
