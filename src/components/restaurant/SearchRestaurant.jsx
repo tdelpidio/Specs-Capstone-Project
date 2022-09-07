@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import AddReview from "../review/AddReview";
+import GetReview from "../review/GetReview";
 
 import axios from "axios";
 
@@ -24,11 +25,12 @@ const SearchRestaurant = () => {
 
     const restaurantOptions = data.map((restaurants, index) => {
         return <p value={restaurants.restaurant_name}><br></br>
-            {restaurants.restaurant_name}<br></br>
+            <h4>{restaurants.restaurant_name}</h4>
             {restaurants.city}, {restaurants.state}<br></br>
             <a href={restaurants.website} target="blank">{restaurants.website}</a>
             <br></br>
-            <AddReview name={restaurants.restaurant_name}/></p>
+            <AddReview name={restaurants.restaurant_name}/>
+            <GetReview name={restaurants.restaurant_name}/></p>
     })
 
     const formik = useFormik({

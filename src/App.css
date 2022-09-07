@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 html {
   min-height: 100vh;
   min-width: 100vw;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color: #dccca3ad;
   font-family: 'Roboto';
 }
 
@@ -22,18 +25,45 @@ html {
   margin: 0;
 }
 
+a {
+  color:#247BA0;
+}
+a:hover {
+  color:#DCCCA3;
+}
+
+h1{
+  font-size: 75px;
+  font-family: 'Satisfy';
+  color:#800000;
+  text-shadow: #247BA0 5px 5px 5px;
+  font-weight: bold;
+}
+
 h2 {
   color:black;
   font-size: 30px;
+  font-weight: bold;
   align-items: center;
   margin-bottom: 25px;
   margin-top: 25px;
+  font-family: 'Merienda';
 }
 
 h3{
   font-size: 30px;
   text-align: center;
   margin-top: 80px;
+}
+
+h4{
+  font-size: 40px;
+  font-weight: bold;
+  font-family:'Courgette';
+}
+h5{
+  font-size: 15px;
+  font-weight: bold;
 }
 
 input, select {
@@ -79,6 +109,13 @@ header {
   box-sizing: border-box;
   margin-right: 50px;
   border-radius: 5px;
+  font-family: 'Courgette';
+}
+
+.nav-btn:hover{
+  border: #247BA0 solid 2px;
+  box-shadow: #247BA0 2px 2px 2px;
+  color:#247BA0;
 }
 
 .home-welcome{
@@ -121,10 +158,22 @@ header {
 }
 
 button {
-  width: 100px;
+  width: 150px;
   height: 40px;
-  box-sizing: border-box;
   margin: 10px;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: 'Courgette';
+}
+
+button:hover{
+  border: #247BA0 solid 2px;
+  box-shadow: #247BA0 2px 2px 2px;
+  color:#247BA0;
 }
 
 .create-account-form{
@@ -197,10 +246,28 @@ button {
   width: 100%;
   height: 100%;
   display: block;
+  box-sizing: border-box;
   text-align: center;
   border: black solid 2px;
   margin-top: 5px;
   margin-bottom: 5px;
   padding-bottom: 20px;
-  font-size: 20px;
+  font-size: 30px;
+  background-color: #800000;
+  color: white
+}
+
+.reviewDisplay{
+  width: 100%;
+  height: 100%;
+  display: block;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 15px;
+  border-bottom: black double 2px;
+  background-color: white;
+  color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }

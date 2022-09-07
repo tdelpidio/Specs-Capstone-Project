@@ -31,7 +31,7 @@ const AddReview = (props) => {
                 {/* <input
                 name='user'
                 value={formik.values.user}/> */}
-                {userName}
+                <p>Been here before, {userName}? Leave a Review!</p>
                 {/* <input
                 name='name'
                 value={formik.values.name}/> */}

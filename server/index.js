@@ -103,13 +103,22 @@ app.post('/api/addReview', async (req,res) => {
     await sequelize.query(`
     INSERT INTO reviews (user_name, name, review_notes)
     VALUES ('${user}',
-    '${name}'
+    '${name}',
     '${review_notes}')
     
     `)
     res.status(200).send('Thanks for your review!')
 })
 
+app.post('/api/getReview', async (req,res) => {
+    const {restaurantName} = req.body
+    console.log(req.body)
+    const selectedReview = await sequelize.query (`
+        SELECT * FROM reviews
+        WHERE name = '${restaurantName}'
+    `)
+        res.status(200).send(selectedReview[0])
+}),
 
 
 app.listen(PORT, () => console.log(`Running on ${PORT}`))
