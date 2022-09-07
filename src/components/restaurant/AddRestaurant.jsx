@@ -39,7 +39,7 @@ const AddRestaurant = () => {
 
     return(
         <div>
-            <h2>Add a Restaurant</h2>
+            <h2>Have you tried a place that isn't listed? Add it below!</h2>
             <form className='addRestaurant' onSubmit={formik.handleSubmit}>
                 <input 
                 name='name'

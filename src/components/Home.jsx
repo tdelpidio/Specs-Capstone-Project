@@ -8,7 +8,7 @@ const Home = () => {
           <div className="mission-statement">
         <h1>You > Gluten</h1>
         <p>To the tummy ache warriors and health concise heroes, welcome! 
-          <p>Let’s be honest, gluten can be a real pain in the butt. Especially if have an intolerance or suffer from celiac disease. Greater Than Gluten is a space for you to find, add and review gluten free restaurants to help other diners seeking GF options.</p>
+          <p>Let’s be honest, gluten can be a real pain in the butt. Especially if you have an intolerance or suffer from celiac disease. Greater Than Gluten is a space for you to find, add and review gluten free restaurants to help yourself and other diners seeking great GF options.</p>
     </p>
         </div>
               <div className="homeBackground">

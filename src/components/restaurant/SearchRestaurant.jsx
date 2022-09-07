@@ -50,7 +50,7 @@ const SearchRestaurant = () => {
     return (
         <div>
         <section className="search-screen">
-            <h2 className="restaurant-header">Hey, {userName}! Let's Find a Restaurant</h2>
+            <h2 className="restaurant-header">Let's Find a Restaurant</h2>
             <form onSubmit={formik.handleSubmit} className="search-form">
             <select
             name='state'
