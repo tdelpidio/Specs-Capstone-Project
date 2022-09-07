@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from "react";
+import AddReview from "../review/AddReview";
+
 import axios from "axios";
 
 import { useFormik } from "formik"
 
 const SearchRestaurant = () => {
+    let userName = localStorage.getItem ("firstName") 
     const [allStates, setAllStates] = useState([]);
     const [data, setData] = useState([]);
 
@@ -25,7 +28,7 @@ const SearchRestaurant = () => {
             {restaurants.city}, {restaurants.state}<br></br>
             <a href={restaurants.website} target="blank">{restaurants.website}</a>
             <br></br>
-            <button>Reviews</button></p>
+            <AddReview name={restaurants.restaurant_name}/></p>
     })
 
     const formik = useFormik({
@@ -45,7 +48,7 @@ const SearchRestaurant = () => {
     return (
         <div>
         <section className="search-screen">
-            <h2 className="restaurant-header">Find a Restaurant</h2>
+            <h2 className="restaurant-header">Hey, {userName}! Let's Find a Restaurant</h2>
             <form onSubmit={formik.handleSubmit} className="search-form">
             <select
             name='state'

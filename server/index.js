@@ -98,11 +98,13 @@ app.post('/api/getRestaurantList', async (req,res) => {
 }),
 
 app.post('/api/addReview', async (req,res) => {
-    const {review, enjoyed} = req.body
+    const {user, name, review_notes} = req.body
+    console.log(req.body)
     await sequelize.query(`
-    INSERT INTO reviews (review_notes, enjoyed)
-    VALUES ('${review}',
-    '${enjoyed}')
+    INSERT INTO reviews (user_name, name, review_notes)
+    VALUES ('${user}',
+    '${name}'
+    '${review_notes}')
     
     `)
     res.status(200).send('Thanks for your review!')
