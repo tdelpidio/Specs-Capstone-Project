@@ -60,8 +60,8 @@ app.post('/api/login', async (req, res) => {
     if(validUser[1].rowCount === 1) {
         if(bcrypt.compareSync(password, validUser[0][0].password)){
             let userData = {
-                id: validUser[0][0].id,
-                name: validUser[0][0].name,
+                id: validUser[0][0].user_id,
+                name: validUser[0][0].first_name,
                 email
             }
             res.status(200).send(userData)

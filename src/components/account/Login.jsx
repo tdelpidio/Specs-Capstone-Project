@@ -14,13 +14,13 @@ const Login = () => {
         axios.post('http://localhost:4000/api/login', values)
         .then((res) => {
             console.log(res.data)
-            localStorage.setItem('email', res.data.email_address)
-            localStorage.setItem('firstName', res.data.first_name)
-            localStorage.setItem('user_id', res.data.user_id)
+            localStorage.setItem('email', res.data.email)
+            localStorage.setItem('firstName', res.data.name)
+            localStorage.setItem('user_id', res.data.id)
             navigate('/restaurant')
         })
         .catch((err) => {
-            console.log(err.response.data)
+            alert(err.response.data)
         })
     }
     const validate = (values) => {
