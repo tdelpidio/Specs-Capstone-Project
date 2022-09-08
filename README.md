@@ -11,6 +11,8 @@ Users can add restaurants to database
 Users can rate and add comments/reviews to restaurants
 Users can save restaurants to their profile
 Users can search for restaurants by state
+
+
 Future Features:
 
 Ability to search for a restaurant by type of cuisine
